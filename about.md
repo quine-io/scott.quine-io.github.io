@@ -4,6 +4,8 @@ title: About me
 permalink: /about/
 ---
 
+Hi I'm Scott Hendrickson
+
 I build stuff.
 
 Life goals:
