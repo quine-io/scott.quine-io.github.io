@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "When /dev/random fights back"
-date:   2015-05-08 16:49:00
+date:   2015-05-10 16:49:00
 categories: 
 ---
 A few months ago I reached out to [StackOverflow in utter desperation][SO-ref2]. And ran into something completely unexpected.
