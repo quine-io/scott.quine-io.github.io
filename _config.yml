@@ -1,9 +1,10 @@
 # Site settings
-title: Scott's Ramblings
+title: Scott
 email: scott@quine.io
 description: > # this means to ignore newlines until "baseurl:"
     A journal of my sparse successes and frequent failures.
 baseurl: "" # the subpath of your site, e.g. /blog/
+homeurl: "http://quine.io"
 url: "http://scott.quine.io" # the base hostname & protocol for your site
 github_username:  phonyphonecall
 
