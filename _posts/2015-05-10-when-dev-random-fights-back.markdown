@@ -10,7 +10,7 @@ I was building a dead simple [Spring Boot][spring-boot-ref] application. I wrapp
 
 The horror began when I pulled the container onto my [digital ocean][DO-ref] box. The application would hang every time!
 
-#**Reading is for squares**
+###Reading is for squares
 
 I tried swapping java distribution and versions, nothing.
 
@@ -55,7 +55,7 @@ byte getSeedByte() {
 
 Well we're definitely stuck on reading the `/dev/random` source.
 
-#**Stumbling to a solution**
+###Stumbling to a solution
 
 Last resort: I'll try installing haveged on the host, maybe haveged on a container doesn't work right.
 {% highlight bash %}
@@ -64,7 +64,7 @@ apt-get install haveged -y
 
 And it works! Why? Who cares lets get this job done!
 
-#**4 months later...**
+###4 months later...
 
 Wait why did I have to modify my host to get my container working... that seems wrong.
 
@@ -78,7 +78,7 @@ Just add the following line to your program invocation:
 
 And there are active discussions about whether using `urandom` is actually a massive security flaw or not. See [this article][random-article] for the gory details.
 
-#**Pardon the dust**
+###Pardon the dust
 I will update this post with details on how entropy is handled specifically with docker, and why haveged on the docker container didn't work once I finish finals.
 
 Cheers
