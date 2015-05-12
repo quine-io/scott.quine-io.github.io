@@ -59,7 +59,7 @@ Well we're definitely stuck on reading the `/dev/random` source.
 
 Last resort: I'll try installing haveged on the host, maybe haveged on a container doesn't work right.
 {% highlight bash %}
-apt-get install haveged -y
+$ apt-get install haveged -y
 {% endhighlight %}
 
 And it works! Why? Who cares lets get this job done!
