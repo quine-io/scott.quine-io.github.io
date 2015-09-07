@@ -108,11 +108,6 @@ Just add the following line to your program invocation:
 
 And there are active discussions about whether using `/dev/urandom` is actually a massive security flaw or not. See [this article][random-article] for the gory details.
 
-###Why did installing haveged on the container not work?
-
-###Pardon the dust
-I will update this post with details on how entropy is handled specifically with docker, and why haveged on the docker container didn't work once I finish finals.
-
 Cheers
 
 [spring-boot-ref]: http://projects.spring.io/spring-boot/
