@@ -279,3 +279,21 @@
         text-decoration: underline;
     }
 }
+
+/*
+ * about me
+ */
+.section {
+    left: 0;
+    bottom: 0;
+    .section-title {
+        text-align: right;
+    }
+    .section-content-title {
+        -webkit-font-smoothing: antialiased;
+        font-weight: 600;
+    }
+    .section-content {
+        
+    }
+}
