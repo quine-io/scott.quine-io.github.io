@@ -1,0 +1,15 @@
+.table td {
+        text-align: center;   
+}
+
+.alignrow {
+        font-size: 0;
+}
+.alignrow > * {
+        float: none;
+        display: inline-block;
+        font-size: 14px; /* if using LESS it's quicker to just use @font-size-base */
+}
+.alignrow > *:last-child {
+        vertical-align: center;
+}
