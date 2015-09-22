@@ -61,14 +61,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>x</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>x</code></h4></div>
         <div class="col-xs-10">Force blank on when set.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>bbbb</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>bbbb</code></h4></div>
         <div class="col-xs-10">Screen brightness, F=max, 0="off".<br></div>
 </div>
 
@@ -170,21 +170,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>sss</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>sss</code></h4></div>
         <div class="col-xs-10">Object size:<br>    000 =  8x8  and 16x16 sprites<br>    001 =  8x8  and 32x32 sprites<br>    010 =  8x8  and 64x64 sprites<br>    011 = 16x16 and 32x32 sprites<br>    100 = 16x16 and 64x64 sprites<br>    101 = 32x32 and 64x64 sprites<br>    110 = 16x32 and 32x64 sprites ('undocumented')<br>    111 = 16x32 and 32x32 sprites ('undocumented')<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>nn</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>nn</code></h4></div>
         <div class="col-xs-10">Name Select<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>bbb</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>bbb</code></h4></div>
         <div class="col-xs-10">Name Base Select (Addr>>14)<br></div>
 </div>
 
@@ -382,14 +382,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>p</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>p</code></h4></div>
         <div class="col-xs-10">Obj Priority activation bit<br>    When this bit is set, an Obj other than Sprite 0 may be given<br>    priority. See the section "SPRITES" below for details.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>b aaaaaaaa</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>b aaaaaaaa</code></h4></div>
         <div class="col-xs-10">OAM address<br>    This can be thought of in two ways, depending on your conception of<br>    OAM. If you consider OAM as a 544-byte table, baaaaaaaa is the word<br>    address into that table. If you consider OAM to be a 512-byte table<br>    and a 32-byte table, b is the table selector and aaaaaaaa is the<br>    word address in the table. See the section "SPRITES" below for<br>    details.<br></div>
 </div>
 
@@ -588,14 +588,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>A/B/C/D</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>A/B/C/D</code></h4></div>
         <div class="col-xs-10">BG character size for BG1/BG2/BG3/BG4<br>    If the bit is set, then the BG is made of 16x16 tiles. Otherwise,<br>    8x8 tiles are used. However, note that Modes 5 and 6 always use<br>    16-pixel wide tiles, and Mode 7 always uses 8x8 tiles. See the<br>    section "BACKGROUNDS" below for details.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>mmm</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>mmm</code></h4></div>
         <div class="col-xs-10">BG Mode<br></div>
 </div>
 
@@ -697,21 +697,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>e</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>e</code></h4></div>
         <div class="col-xs-10">Mode 1 BG3 priority bit<br>    Mode     BG depth  OPT  Priorities<br>             1 2 3 4        Front -> Back<br>    -=-------=-=-=-=----=---============---<br>     0       2 2 2 2    n    3AB2ab1CD0cd<br>     1       4 4 2      n    3AB2ab1C 0c<br>                * if e set: C3AB2ab1  0c<br>     2       4 4        y    3A 2B 1a 0b<br>     3       8 4        n    3A 2B 1a 0b<br>     4       8 2        y    3A 2B 1a 0b<br>     5       4 2        n    3A 2B 1a 0b<br>     6       4          y    3A 2  1a 0<br>     7       8          n    3  2  1a 0<br>     7+EXTBG 8 7        n    3  2B 1a 0b<br>    "OPT" means "Offset-per-tile mode". For the priorities, numbers<br>    mean sprites with that priority. Letters correspond to BGs (A=1,<br>    B=2, etc), with upper/lower case indicating tile priority 1/0. See<br>    the section "BACKGROUNDS" below for details.<br>    Mode 7's EXTBG mode allows you to enable BG2, which uses the same<br>    tilemap and character data as BG1 but interprets bit 7 of the pixel<br>    data as a priority bit. BG2 also has some oddness to do with some<br>    of the per-BG registers below. See the Mode 7 section under<br>    BACKGROUNDS for details.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>A/B/C/D</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>A/B/C/D</code></h4></div>
         <div class="col-xs-10">Affect BG1/BG2/BG3/BG4<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>xxxx</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>xxxx</code></h4></div>
         <div class="col-xs-10">pixel size, 0=1x1, F=16x16<br>    The mosaic filter goes over the BG and covers each x-by-x square<br>    with the upper-left pixel of that square, with the top of the first<br>    row of squares on the 'starting scanline'. If this register is set<br>    during the frame, the 'starting scanline' is the current scanline,<br>    otherwise it is the first visible scanline of the frame. I.e. if<br>    even scanlines are completely red and odd scanlines are completely<br>    blue, setting the xxxx=1 mid-frame will make the rest of the screen<br>    either completely red or completely blue depending on whether you<br>    set xxxx on an even or an odd scanline.<br>    XXX: It seems that writing the same value to this register does not<br>    reset the 'starting scanline', but which changes do reset it?<br>    Note that mosaic is applied after scrolling, but before any clip<br>    windows, color windows, or math. So the XxX block can be partially<br>    clipped, and it can be mathed as normal with a non-mosaiced BG. But<br>    scrolling can't make it partially one color and partially another.<br>    Modes 5-6 should 'double' the expansion factor to expand<br>    half-pixels. This actually makes xxxx=0 have a visible effect,<br>    since the even half-pixels (usually on the subscreen) hide the odd<br>    half-pixels. The same thing happens vertically with interlace mode.<br>    Mode 7, of course, is weird. BG1 mosaics about like normal, as long<br>    as you remember that the Mode 7 transformations have no effect on<br>    the XxX blocks. BG2 uses bit A to control 'vertical mosaic' and bit<br>    B to control 'horizontal mosaic', so you could be expanding over<br>    1xX, Xx1, or XxX blocks. This can get really interesting as BG1<br>    still uses bit A as normal, so you could have the BG1 pixels<br>    expanded XxX with high-priority BG2 pixels expanded 1xX on top of<br>    them.<br></div>
 </div>
 
@@ -1061,21 +1061,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>aaaaaa</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>aaaaaa</code></h4></div>
         <div class="col-xs-10">Tilemap address in VRAM (Addr>>10)<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>x</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>x</code></h4></div>
         <div class="col-xs-10">Tilemap horizontal mirroring<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>y</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>y</code></h4></div>
         <div class="col-xs-10">Tilemap veritcal mirroring<br>    All tilemaps are 32x32 tiles. If x and y are both unset, there is<br>    one tilemap at Addr. If x is set, a second tilemap follows the<br>    first that should be considered "to the right of" the first. If y<br>    is set, a second tilemap follows the first that should be<br>    considered "below" the first. If both are set, then a second<br>    follows "to the right", then a third "below", and a fourth "below<br>    and to the right".<br></div>
 </div>
 
@@ -1259,7 +1259,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>aaaa</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>aaaa</code></h4></div>
         <div class="col-xs-10">Base address for BG1/3 (Addr>>13)<br></div>
 </div>
 
@@ -1957,7 +1957,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>x</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>x</code></h4></div>
         <div class="col-xs-10">The BG offset, at most 10 bits (some modes effectively use as few<br>    as 8).<br></div>
 </div>
 
@@ -2060,14 +2060,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>i</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>i</code></h4></div>
         <div class="col-xs-10">Address increment mode:<br>        0 => increment after writing $2118/reading $2139<br>        1 => increment after writing $2119/reading $213a<br>    Note that a word write stores low first, then high. Thus, if you're<br>    storing a word value to $2118/9, you'll probably want to set 1<br>    here.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>ii</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>ii</code></h4></div>
         <div class="col-xs-10">Address increment amount<br>    00 = Normal increment by 1<br>    01 = Increment by 32<br>    10 = Increment by 128<br>    11 = Increment by 128<br></div>
 </div>
 
@@ -2266,7 +2266,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>mm</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>mm</code></h4></div>
         <div class="col-xs-10">Address remapping<br>    00 = No remapping<br>    01 = Remap addressing aaaaaaaaBBBccccc => aaaaaaaacccccBBB<br>    10 = Remap addressing aaaaaaaBBBcccccc => aaaaaaaccccccBBB<br>    11 = Remap addressing aaaaaaBBBccccccc => aaaaaacccccccBBB<br>    The "remap" modes basically implement address translation. If<br>    $2116/7 are set to #$0003, then word address #$0018 will be written<br>    instead, and $2116/7 will be incremented to $0004.<br></div>
 </div>
 
@@ -2563,21 +2563,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>r</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>r</code></h4></div>
         <div class="col-xs-10">Playing field size: When clear, the playing field is 1024x1024<br>    pixels (so the tilemap completely fills it). When set, the playing<br>    field is much larger, and the 'empty space' fill is controlled by<br>    bit 6.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>c</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>c</code></h4></div>
         <div class="col-xs-10">Empty space fill, when bit 7 is set:<br>       0 = Transparent.<br>       1 = Fill with character 0. Note that the fill is matrix<br>           transformed like all other Mode 7 tiles.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>x/y</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>x/y</code></h4></div>
         <div class="col-xs-10">Horizontal/Veritcal mirroring. If the bit is set, flip the<br>       256x256 pixel 'screen' in that direction.<br></div>
 </div>
 
@@ -2941,14 +2941,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>Reg</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>Reg</code></h4></div>
         <div class="col-xs-10">(Current<<8) | Prev;<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>Prev</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>Prev</code></h4></div>
         <div class="col-xs-10">Current;<br></div>
 </div>
 
@@ -3147,42 +3147,42 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>[   ]</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>[   ]</code></h4></div>
         <div class="col-xs-10">[     ] * [                  ] + [    ]<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>result is then restricted to 0<</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>result is then restricted to 0<</code></h4></div>
         <div class="col-xs-10">X<=1023 and 0<=Y<=1023. If $211a bits 6<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>X[0,y]</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>X[0,y]</code></h4></div>
         <div class="col-xs-10">((A*CLIP(HOFS-CX))&~63)<br>         + ((B*y)&~63) + ((B*CLIP(VOFS-CY))&~63)<br>         + (CX<<8)<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>Y[0,y]</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>Y[0,y]</code></h4></div>
         <div class="col-xs-10">((C*CLIP(HOFS-CX))&~63)<br>         + ((D*y)&~63) + ((D*CLIP(VOFS-CY))&~63)<br>         + (CY<<8)<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>X[x,y]</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>X[x,y]</code></h4></div>
         <div class="col-xs-10">X[x-1,y] + A<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>Y[x,y]</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>Y[x,y]</code></h4></div>
         <div class="col-xs-10">Y[x-1,y] + C<br></div>
 </div>
 
@@ -3654,42 +3654,42 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>c</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>c</code></h4></div>
         <div class="col-xs-10">Enable window 1 for BG1/BG3/OBJ<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>a</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>a</code></h4></div>
         <div class="col-xs-10">Enable window 2 for BG1/BG3/OBJ<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>C/A</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>C/A</code></h4></div>
         <div class="col-xs-10">Enable window 1/2 for BG2/BG4/Color<br>    When the bit is set, the corresponding window will affect the<br>    corresponding background (subject to the settings of $212e/f).<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>d</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>d</code></h4></div>
         <div class="col-xs-10">Window 1 Inversion for BG1/BG3/OBJ<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>b</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>b</code></h4></div>
         <div class="col-xs-10">Window 2 Inversion for BG1/BG3/OBJ<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>D/B</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>D/B</code></h4></div>
         <div class="col-xs-10">Window 1/2 Inversion for BG2/BG4/Color<br>    When the bit is set, "W" should be replaced by "~W" (not-W) in the<br>    window combination formulae below.<br></div>
 </div>
 
@@ -4230,7 +4230,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>44/33/22/11/oo/cc</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>44/33/22/11/oo/cc</code></h4></div>
         <div class="col-xs-10">Mask logic for BG1/BG2/BG3/BG4/OBJ/Color<br>    This specified the window combination method, using standard<br>    boolean operators:<br>      00 = OR<br>      01 = AND<br>      10 = XOR<br>      11 = XNOR<br>    Consider two variables, W1 and W2, which are true for pixels<br>    between the appropriate left and right bounds as set in<br>    $2126-$2129 and false otherwise. Then, you have the following<br>    possibilities: (replace "W#" with "~W#", depending on the Inversion<br>    settings of $2123-$2125)<br>      Neither window enabled => nothing masked.<br>      One window enabled     => Either W1 or W2, as appropriate.<br>      Both windows enabled   => W1 op W2, where "op" is as above.<br>    Where the function is true, the BG will be masked.<br></div>
 </div>
 
@@ -4416,7 +4416,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>1/2/3/4/o</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>1/2/3/4/o</code></h4></div>
         <div class="col-xs-10">Enable BG1/BG2/BG3/BG4/OBJ for display<br>            on the main (or sub) screen.<br></div>
 </div>
 
@@ -4602,7 +4602,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>1/2/3/4/o</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>1/2/3/4/o</code></h4></div>
         <div class="col-xs-10">Enable window masking for BG1/BG2/BG3/BG4/OBJ on the<br>            main (or sub) screen.<br></div>
 </div>
 
@@ -4705,28 +4705,28 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>cc</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>cc</code></h4></div>
         <div class="col-xs-10">Clip colors to black before math<br>    00 => Never<br>    01 => Outside Color Window only<br>    10 => Inside Color Window only<br>    11 => Always<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>mm</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>mm</code></h4></div>
         <div class="col-xs-10">Prevent color math<br>    00 => Never<br>    01 => Outside Color Window only<br>    10 => Inside Color Window only<br>    11 => Always<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>s</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>s</code></h4></div>
         <div class="col-xs-10">Add subscreen (instead of fixed color)<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>d</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>d</code></h4></div>
         <div class="col-xs-10">Direct color mode for 256-color BGs<br></div>
 </div>
 
@@ -4826,21 +4826,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>s</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>s</code></h4></div>
         <div class="col-xs-10">Add/subtract select<br>    0 => Add the colors<br>    1 => Subtract the colors<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>h</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>h</code></h4></div>
         <div class="col-xs-10">Half color math. When set, the result of the color math is<br>    divided by 2 (except when $2130 bit 1 is set and the fixed color is<br>    used, or when color is cliped).<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>4/3/2/1/o/b</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>4/3/2/1/o/b</code></h4></div>
         <div class="col-xs-10">Enable color math on BG1/BG2/BG3/BG4/OBJ/Backdrop<br></div>
 </div>
 
@@ -4941,14 +4941,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>b/g/r</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>b/g/r</code></h4></div>
         <div class="col-xs-10">Which color plane(s) to set the intensity for.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>ccccc</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>ccccc</code></h4></div>
         <div class="col-xs-10">Color intensity.<br></div>
 </div>
 
@@ -5050,49 +5050,49 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>s</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>s</code></h4></div>
         <div class="col-xs-10">"External Sync". Used for superimposing "sfx" graphics, whatever<br>    that means. Usually 0. Not much is known about this bit.<br>    Interestingly, the SPPU1 chip has a pin named "EXTSYNC" (or<br>    not-EXTSYNC, since it has a bar over it) which is tied to Vcc.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>e</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>e</code></h4></div>
         <div class="col-xs-10">Mode 7 EXTBG ("Extra BG"). When this bit is set, you may enable<br>    BG2 on Mode 7. BG2 uses the same tile and character data as BG1,<br>    but interprets the high bit of the color data as a priority for the<br>    pixel.<br>    Various sources report additional effects for this bit, possibly<br>    related to bit 7. For example, "Enable the Data Supplied From the<br>    External Lsi.", whatever that means. Of course, maybe that's a<br>    typo and it's supposed to apply to bit 7 instead.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>p</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>p</code></h4></div>
         <div class="col-xs-10">Enable pseudo-hires mode. This creates a 512-pixel horizontal<br>    resolution by taking pixels from the subscreen for the<br>    even-numbered pixels (zero based) and from the main screen for the<br>    odd-numbered pixels. Color math behaves just as with Mode 5/6<br>    hires. The interlace bit still has no effect. Mosaic operates as<br>    normal (not like Mode 5/6). The 'subscreen' pixel is clipped (by<br>    windows) when the main-screen pixel to the LEFT is clipped, not<br>    when the one to the RIGHT is clipped as you'd expect. What happens<br>    with pixel column 0 is unknown.<br>    Enabling this bit in Modes 5 or 6 has no effect.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>o</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>o</code></h4></div>
         <div class="col-xs-10">Overscan mode. When set, 239 lines will be displayed instead of<br>    the normal 224. This also means V-Blank will occur that<br>    much later, and be shorter. All that happens is that extra lines<br>    get added to the display, and it seems the TV will like to move<br>    the display up 8 pixels. See below for more details.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>I</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>I</code></h4></div>
         <div class="col-xs-10">OBJ Interlace. When set regardless of BG mode, the OBJ will be<br>    interlaced (see bit 0 below), and thus will appear half-height.<br>    Note that this only controls whether obj are drawn as normal or<br>    not; the interlace signal is only output to the TV based on bit 0<br>    below.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>i</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>i</code></h4></div>
         <div class="col-xs-10">Screen interlace. When set in BG mode 5 (and probably 6), the<br>    effective screen height will be 448 (or 478) pixles, rather than<br>    224 (or 239). When set in any other mode, the screen will just get<br>    a bit jumpy. However, toggling the tilemap each field would<br>    simulate the increased screen height (much like pseudo-hires<br>    simulares hires).<br>    In hardware, setting this bit makes the SNES output a normal<br>    interlace signal rather than always forcing one frame.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>0xE1<</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>0xE1<</code></h4></div>
         <div class="col-xs-10">X<=0xF0), NMI will occur on line X and the last HDMA transfer<br></div>
 </div>
 
@@ -6173,28 +6173,28 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>t</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>t</code></h4></div>
         <div class="col-xs-10">Time Over Flag. If more than 34 sprite-tiles (e.g. a 16x16<br>    sprite has 2 sprite-tiles) were encountered on a single line, this<br>    flag will be set. The flag is reset at the end of V-Blank. See the<br>    section "SPRITES" below for details.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>r</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>r</code></h4></div>
         <div class="col-xs-10">Range Over Flag. If more than 32 sprites were encountered on a<br>    single line, this flag will be set. The flag is reset at the end of<br>    V-Blank. See the section "SPRITES" below for details.<br>    Note that the above two flags are set whether or not OBJ are<br>    actually enabled at the time.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>m</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>m</code></h4></div>
         <div class="col-xs-10">"Master/slave mode select". Little is known about this bit.<br>    Current theory is that it indicates the status of the "MASTER" pin<br>    on the S-PPU1 chip, which in the normal SNES is always Gnd. We<br>    always seem to read back 0 here.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>vvvv</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>vvvv</code></h4></div>
         <div class="col-xs-10">5c77 chip version number. So far, we've only encountered version<br>    1.<br></div>
 </div>
 
@@ -6294,28 +6294,28 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>f</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>f</code></h4></div>
         <div class="col-xs-10">Interlace Field. This will toggle every V-Blank.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>l</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>l</code></h4></div>
         <div class="col-xs-10">External latch flag. When the PPU counters are latched, this<br>    flag gets set. The flag is reset on read, but only when $4201 bit 7<br>    is set.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>p</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>p</code></h4></div>
         <div class="col-xs-10">NTSC/Pal Mode. If this is a PAL SNES, this bit will be set,<br>    otherwise it will be clear.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>vvvv</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>vvvv</code></h4></div>
         <div class="col-xs-10">5C78 chip version number. So far, we've encountered at least 2<br>    and 3. Possibly 1 as well.<br></div>
 </div>
 
@@ -7260,21 +7260,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>l</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>l</code></h4></div>
         <div class="col-xs-10">Writing this bit controlls the Latch line of both controller<br>    ports. When 1 is set, the Latch goes high (or is it low? At any<br>    rate, whichever one makes the pads latch their state). When<br>    cleared, the Latch goes the other way.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>a/b</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>a/b</code></h4></div>
         <div class="col-xs-10">These bits return the state of the Data1 line.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>c/d</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>c/d</code></h4></div>
         <div class="col-xs-10">These bits return the state of the Data2 line.<br>    Reading $4016 drives the Clock line of Controller Port 1 low.<br>    The SNES then reads the Data1 and Data2 lines, and Clock is set<br>    back to high. $4017 does the same for Port 2.<br></div>
 </div>
 
@@ -7375,21 +7375,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>n</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>n</code></h4></div>
         <div class="col-xs-10">Enable NMI. If clear, NMI will not occur. If set, NMI will fire<br>    just after the start of V-Blank.<br>    NMI fires shortly after the V Counter reaches $E1 (or presumably<br>    $F0 if overscan is enabled, see register $2133).<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>x/y</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>x/y</code></h4></div>
         <div class="col-xs-10">IRQ enable.<br>    0/0 => No IRQ will occur<br>    0/1 => An IRQ will occur sometime just after the V Counter reaches<br>           the value set in $4209/a.<br>    1/0 => An IRQ will occur sometime just after the H Counter reaches<br>           the value set in $4207/8.<br>    1/1 => An IRQ will occur sometime just after the H Counter reaches<br>           the value set in $4207/8 when V Counter equals the value set<br>           in $4209/a.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>a</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>a</code></h4></div>
         <div class="col-xs-10">Auto-Joypad Read Enable. When set, the registers $4218-$421f<br>    will be updated at about V Counter = $E3 (or presumably $F2).<br></div>
 </div>
 
@@ -8446,7 +8446,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>7/6/5/4/3/2/1/0</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>7/6/5/4/3/2/1/0</code></h4></div>
         <div class="col-xs-10">Enable the selected DMA channels. The CPU will be<br>    paused until all DMAs complete. DMAs will be executed in order from<br>    0 to 7 (?).<br></div>
 </div>
 
@@ -8549,7 +8549,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>7/6/5/4/3/2/1/0</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>7/6/5/4/3/2/1/0</code></h4></div>
         <div class="col-xs-10">Enable the selected HDMA channels. HDMAs will be<br>    executed in order from 0 to 7 (?).<br></div>
 </div>
 
@@ -8652,7 +8652,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>f</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>f</code></h4></div>
         <div class="col-xs-10">FastROM select. The SNES uses a master clock running at<br>    about 21.477 MHz (current theory is 1.89e9/88 Hz). By default, the<br>    SNES takes 8 master cycles for each ROM access. If this bit is set<br>    and ROM is accessed via banks $80-$FF, only 6 master cycles will be<br>    used.<br></div>
 </div>
 
@@ -8755,14 +8755,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>n</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>n</code></h4></div>
         <div class="col-xs-10">NMI Flag. This bit is set at the start of V-Blank (at the<br>    moment, we suspect when H-Counter is somewhere between $28 and<br>    $4E), and cleared on read or at the end of V-Blank. Supposedly, it<br>    is required that this register be read during NMI.<br>    Note that this bit is not affected by bit 7 of $4200.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>vvvv</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>vvvv</code></h4></div>
         <div class="col-xs-10">5A22 chip version number. So far, we've encountered at least 2,<br>    maybe 1 as well.<br></div>
 </div>
 
@@ -8864,7 +8864,7 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>i</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>i</code></h4></div>
         <div class="col-xs-10">IRQ Flag. This bit is set just after an IRQ fires (at the<br>    moment, it seems to have the same delay as the NMI Flag of $4210<br>    has following NMI), and is cleared on read or write. Supposedly, it<br>    is required that this register be read during the IRQ handler. If<br>    this really is the case, then I suspect that that read is what<br>    actually clears the CPU's IRQ line.<br></div>
 </div>
 
@@ -8967,21 +8967,21 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>v</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>v</code></h4></div>
         <div class="col-xs-10">V-Blank Flag. If we're currently in V-Blank, this flag is set,<br>    otherwise it is clear. The setting seems to occur at H Counter<br>    about $16-$17 when V Counter is $E1, and the clearing at about $1E<br>    with V Counter 0.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>h</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>h</code></h4></div>
         <div class="col-xs-10">H-Blank Flag. If we're currently in H-Blank, this flag is set,<br>    otherwise it is clear. The setting seems to occur at H Counter<br>    about $121-$122, and the clearing at about $12-$18.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>a</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>a</code></h4></div>
         <div class="col-xs-10">Auto-Joypad Status. This is set while Auto-Joypad Read is in<br>    progress, and cleared when complete. It typically turns on at<br>    the start of V-Blank, and completes 3 scanlines later.<br></div>
 </div>
 
@@ -10162,14 +10162,14 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>a/b/x/y/l/r/e/t</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>a/b/x/y/l/r/e/t</code></h4></div>
         <div class="col-xs-10">A/B/X/Y/L/R/Select/Start button status.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>U/D/L/R</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>U/D/L/R</code></h4></div>
         <div class="col-xs-10">Up/Down/Left/Right control pad status. Note that only one of<br>    L/R and only one of U/D may be set, due to the pad hardware.<br></div>
 </div>
 
@@ -10271,35 +10271,35 @@
                 </div>
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>d</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>d</code></h4></div>
         <div class="col-xs-10">Transfer Direction. When clear, data will be read from the CPU<br>    memory and written to the PPU register. When set, vice versa.<br>    Contrary to previous belief, this bit DOES affect HDMA! Indirect<br>    mode is more useful, it will read the table as normal and write<br>    from Bus B to the Bus A address specified. Direct mode will work as<br>    expected though, it will read counts from the table and try to<br>    write the data values into the table.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>a</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>a</code></h4></div>
         <div class="col-xs-10">HDMA Addressing Mode. When clear, the HDMA table contains the<br>    data to transfar. When set, the HDMA table contains pointers to the<br>    data. This bit does not affect DMA.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>i</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>i</code></h4></div>
         <div class="col-xs-10">DMA Address Increment. When clear, the DMA address will be<br>    incremented for each byte. When set, the DMA address will be<br>    decremented. This bit does not affect HDMA.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>f</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>f</code></h4></div>
         <div class="col-xs-10">DMA Fixed Transfer. When set, the DMA address will not be<br>    adjusted. When clear, the address will be adjusted as specified by<br>    bit 4. This bit does not affect HDMA.<br></div>
 </div>
 
 
                 <div class="row alignrow">
         <div class="col-xs-1"></div>
-        <div class="col-xs-1"><h4><code>ttt</code></h4></div>
+        <div class="col-xs-1 bit-id"><h4><code>ttt</code></h4></div>
         <div class="col-xs-10">Transfer Mode.<br>    000 => 1 register write once             (1 byte:  p               )<br>    001 => 2 registers write once            (2 bytes: p, p+1          )<br>    010 => 1 register write twice            (2 bytes: p, p            )<br>    011 => 2 registers write twice each      (4 bytes: p, p,   p+1, p+1)<br>    100 => 4 registers write once            (4 bytes: p, p+1, p+2, p+3)<br>    101 => 2 registers write twice alternate (4 bytes: p, p+1, p,   p+1)<br>    110 => 1 register write twice            (2 bytes: p, p            )<br>    111 => 2 registers write twice each      (4 bytes: p, p,   p+1, p+1)<br></div>
 </div>
 
@@ -11090,19 +11090,4 @@
                 
                 
                 
-                
-                
-                
-                <div class="row alignrow">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-10">
-                                
-                        </div>
-                </div>
-                <p>
-                <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-10">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                &nbsp&nbsp R/W at any time
-                    
+          
