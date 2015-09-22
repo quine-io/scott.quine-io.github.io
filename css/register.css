@@ -11,5 +11,10 @@
         font-size: 14px; /* if using LESS it's quicker to just use @font-size-base */
 }
 .alignrow > *:last-child {
-        vertical-align: center;
+        vertical-align: bottom;
+        margin-bottom: 1em;
+}
+
+.bit-id {
+        vertical-align: top;
 }
