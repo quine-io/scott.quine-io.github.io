@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "Compiler as a Service"
+date:   2015-05-10 16:49:00
+categories: 
+---
+For my senior design class at UW-Madison, we decided to build a Nintendo NES-like device that can do massive parralel sprite rendering to create some fun 2D games. The design was implemented in verilog, and instantiated on a Xilinx FPGA. To run games, we chose to instantiate a [Xilinx Microblaze processor][mb-link] as the main CPU. The toolchain for this processor is the Xilinx SDK, a monstrosity based on eclipse, that can only run well on Windows. There was also a GNU toolchain that had long been abandoned, so we opted to bring it back to life.
+
+Our team was made up of six very qualified individuals, who all use different platforms, and have varying degrees of skill when it comes to building and installing complex tools such as a GNU toolchain. We quickly recognized that installing and managing the toolchain on everyone's machines was going to be a nightmare, especially as we evolve the hardware specification.
+
+So my toolchain design constraints started to make themselves clear:
+
+- **OS Independent** - We want to give everyone on the team equal opportunity to use the tools, from the comfort of their favorite OS.
+- **Reproducable Builds** - If people cannot trust the toolchain, they will brew their own. That gets messy real quick.
+- **Flexible** - Allow users to use all the tools that ship with a GNU toolchain (gcc, g++, objcopy, objdump...).
+
+These started quickly lending themselves to two specific designs choices:
+
+1. Containerize the toolchain
+2. Run the toolchain as a service on a server, with a simple client on the developer machine. No docker install required.
+
+The first is obvious. Containerizing the toolchain allows me to create one build of GNU that works for exactly what we need, and never think about installing it again. Additionally this should allow us to run the container locally on everyone's machine.
+
+So why would we add the complexity of client/server into the mix? This was chosen because of the skillset of the teams we have, and the OS's they run. Getting docker installed on most systems is now trivial. But we still need to get the developers code into the container. This lends itself very well to the docker `--volume` feature, where we can bind a specific volume on the host machine, to a directory in the containter. If this directory contains the source you want to work with, the toolchain can access it with no problem. Unnfortuntely, this is really only true in a linux system. On mac or windows, docker containers run inside another VM, that has its own filesystem. So binding a host directly involves binding the desired directory into the docker VM, and then binding docker to that volume in the VM.
+
+This complexity is something I did not want the developers to have to deal with, especially because many had not used conatiners previously. By running the container on a linux server, we get to bind directly to a host volume, and can get output from the container with ease, as changes or new files are persisted to the disk on host.
+
+### High Level Design
+The basic flow of an issued command is as follows:
+
+1. invoke client
+2. tar & compress sources
+3. send to server
+4. untar directory
+5. create new containter with user commands & volume
+6. run container
+7. tar & compress results
+8. respond to client with results
+9. unzip results
+
+### CLI Interface
+My goals in designing the CLI were to keep it as simple and unopinionated as possible. I know I have to pass a directory to zip up and send to the server, as well as `n` arguments to execute as the container entrypoint.
+
+{% highlight bash %}
+./client <dir> <cmds...>
+{% endhighlight %}
+####Example
+
+Given a `main.c`
+{% highlight c %}
+int main(int argc, char** argv) {
+    printf("hello world!");
+    return 0;
+}
+{% endhighlight %}
+We can compile like this:
+{% highlight bash %}
+$ ls /path/to/src
+main.c
+$ ./client /path/to/src microblaze-gcc main.c -o main.o
+{% endhighlight %}
+
+Any command given after the directory argument is executed directly in docker, so we don't have to worry about trying to interpret user input. We just build the containter they specify, and run it. This allows the developer to use the same exact commands they are used to for creating and inspecting binaries. As always, if you're going to add a new tool to a developers workflow, making it as familiar as possible enables faster adoption, and a greater chance they will continue to use the tool.
+
+The next big design decision is output. The user can run a compile, but how do they get their `.o`? I chose to keep this dead simple as well. I am not going to interpret the commands the user passes in, which means I cannot predict the way the command will output infermation.
+
+I create a new directory in the working directory from where the client is invoked called `results/`. I then take the entire directory that the user passed in, along with any new files or changes generated by the container, and place them all directly into the `results/` directory. Additionally many tools communicate info and errors on `stdout` and `stderr`, so I take those from the run of the container, and put them in the results directory as well in files called `out.log` and `err.log`. 
+
+So after our run from the example above, we would get output like the following:
+{% highlight bash %}
+$ ls results/
+err.log  main.c  main.o  out.log
+{% endhighlight %}
+
+Just like the command input, this takes a simple and unopinionated approach to communicating results to the user.
+
+### Internal 
+Go made this project very straightforward, as it is loaded with packages that allow easy interaction with the filesystem. Additionally [go-dockerclient][dockerclient-link] made interacting with docker a breeze.
+
+If you're intreguied, checkout the [source on github][mb-gnu].
+
+[mb-link]: http://www.xilinx.com/products/design-tools/microblaze.html
+[dockerclient-link]: https://github.com/fsouza/go-dockerclient
+[mb-gnu]: https://github.com/phonyphonecall/mb-gnu-service.git
