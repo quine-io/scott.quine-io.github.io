@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Compiler as a Service"
-date:   2015-05-10 16:49:00
+date:   2015-10-28 16:49:00
 categories: 
 ---
 For my senior design class at UW-Madison, we decided to build a Nintendo NES-like device that can do massive parralel sprite rendering to create some fun 2D games. The design was implemented in verilog, and instantiated on a Xilinx FPGA. To run games, we chose to instantiate a [Xilinx Microblaze processor][mb-link] as the main CPU. The toolchain for this processor is the Xilinx SDK, a monstrosity based on eclipse, that can only run well on Windows. There was also a GNU toolchain that had long been abandoned, so we opted to bring it back to life.
