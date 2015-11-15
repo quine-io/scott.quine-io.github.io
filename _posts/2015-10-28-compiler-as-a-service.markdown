@@ -4,7 +4,7 @@ title:  "Compiler as a Service"
 date:   2015-10-28 16:49:00
 categories: 
 ---
-For my senior design class at UW-Madison, we decided to build a Nintendo NES-like device that can do massive parralel sprite rendering to create some fun 2D games. The design was implemented in verilog, and instantiated on a Xilinx FPGA. To run games, we chose to instantiate a [Xilinx Microblaze processor][mb-link] as the main CPU. The toolchain for this processor is the Xilinx SDK, a monstrosity based on eclipse, that can only run well on Windows. There was also a GNU toolchain that had long been abandoned, so we opted to bring it back to life.
+For my senior design class at UW-Madison, we decided to build a Nintendo NES-like device that can do massive parallel sprite rendering to create some fun 2D games. The design was implemented in verilog, and instantiated on a Xilinx FPGA. To run games, we chose to instantiate a [Xilinx Microblaze processor][mb-link] as the main CPU. The toolchain for this processor is the Xilinx SDK, a monstrosity based on eclipse, that can only run well on Windows. There was also a GNU toolchain that had long been abandoned, so we opted to bring it back to life.
 
 Our team was made up of six very qualified individuals, who all use different platforms, and have varying degrees of skill when it comes to building and installing complex tools such as a GNU toolchain. We quickly recognized that installing and managing the toolchain on everyone's machines was going to be a nightmare, especially as we evolve the hardware specification.
 
